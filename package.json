@@ -1,16 +1,20 @@
 {
-  "name": "od-components",
-  "version": "0.1.0",
-  "private": true,
+  "name": "@lermanori/od-vue-components",
+  "version": "0.1.8",
   "scripts": {
-    "serve": "vue-cli-service serve",
+    "serve": "vue-cli-service serve ",
     "build": "vue-cli-service build",
-    "build-bundle": "vue-cli-service build --target lib --name od-studio ./src/components/entry.js",
+    "build-bundle": "npm run build:umd & npm run build:es & npm run build:unpkg",
+    "build:es": "rollup --config rollup.config.js --format es --file dist/od-vue-component.esm.js",
+    "build:umd": "rollup --config rollup.config.js --format umd --file dist/od-vue-component.umd.js",
+    "build:unpkg": "rollup --config rollup.config.js --format iife --file dist/od-vue-component.min.js --extend",
+    "jest": "jest",
     "test:e2e": "vue-cli-service test:e2e",
     "test:unit": "vue-cli-service test:unit"
   },
   "dependencies": {
     "core-js": "^2.6.5",
+    "rollup-plugin-postcss": "^2.0.3",
     "vue": "^2.6.10",
     "vue-router": "^3.0.3",
     "vuetify": "^2.0.0"
@@ -24,12 +28,19 @@
     "axios": "^0.18.0",
     "babel-core": "7.0.0-bridge.0",
     "babel-jest": "^23.6.0",
+    "bili": "^4.8.1",
     "node-sass": "^4.9.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-sass": "^1.2.2",
+    "rollup-plugin-vue": "^5.0.1",
     "sass": "^1.17.4",
     "sass-loader": "^7.1.0",
     "vue-cli-plugin-axios": "0.0.4",
     "vue-cli-plugin-vuetify": "^0.6.3",
     "vue-template-compiler": "^2.6.10",
     "vuetify-loader": "^1.2.2"
-  }
+  },
+  "main": "dist/od-vue-component.umd.js",
+  "module": "dist/od-vue-component.esm.js",
+  "unpkg": "dist/od-vue-component.min.js"
 }

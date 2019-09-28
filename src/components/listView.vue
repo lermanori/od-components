@@ -6,5 +6,10 @@
   </v-container>
 </template>
 <script>
-export default {};
+import { VList } from "vuetify/lib";
+export default {
+  components: {
+    VList
+  }
+};
 </script>

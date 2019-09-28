@@ -6,5 +6,11 @@
   </v-container>
 </template>
 <script>
-export default {};
+import { VRow, VContainer } from "vuetify/lib";
+export default {
+  components: {
+    VRow,
+    VContainer
+  }
+};
 </script>

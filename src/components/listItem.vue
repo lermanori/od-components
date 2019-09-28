@@ -4,7 +4,12 @@
   </v-list-item>
 </template>
 <script>
-export default {};
+import { VListItem } from "vuetify/lib";
+export default {
+  components: {
+    VListItem
+  }
+};
 </script>
 <style lang="scss" scoped>
 .list-item:hover {

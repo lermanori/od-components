@@ -17,7 +17,13 @@
 </template>
 
 <script>
+import axios from "axios";
+import { VRow, VTextField } from "vuetify/lib";
 export default {
+  components: {
+    VRow,
+    VTextField
+  },
   props: ["baseUrl", "adapter"],
   data() {
     return {
@@ -51,7 +57,7 @@ export default {
     async updateData() {
       try {
         if (this.searchValue != "") {
-          const response = await this.$axios.get(this.Endpoint);
+          const response = await axios.get(this.Endpoint);
           this.response = response.data;
         }
       } catch (err) {
