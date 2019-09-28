@@ -2,7 +2,7 @@
   "name": "@lermanori/od-vue-components",
   "version": "0.1.8",
   "scripts": {
-    "serve": "vue-cli-service serve ",
+    "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "build-bundle": "npm run build:umd & npm run build:es & npm run build:unpkg",
     "build:es": "rollup --config rollup.config.js --format es --file dist/od-vue-component.esm.js",
