@@ -10,7 +10,7 @@
     "build:unpkg": "rollup --config rollup.config.js --format iife --file dist/od-vue-component.min.js --extend",
     "jest": "jest",
     "test:e2e": "vue-cli-service test:e2e",
-    "test:unit": "vue-cli-service test:unit"
+    "test:unit": "vue-cli-service test:unit --verbose"
   },
   "dependencies": {
     "core-js": "^2.6.5",
