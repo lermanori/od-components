@@ -3,7 +3,7 @@
     <grid-item>
       <v-card>
         <h1>hello from i</h1>
-        <h1>hello from i</h1>
+        <h1>hello from is</h1>
         <h1>hello from i</h1>
       </v-card>
     </grid-item>
