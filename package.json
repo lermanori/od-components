@@ -8,7 +8,7 @@
     "build:es": "rollup --config rollup.config.js --format es --file dist/od-vue-component.esm.js",
     "build:umd": "rollup --config rollup.config.js --format umd --file dist/od-vue-component.umd.js",
     "build:unpkg": "rollup --config rollup.config.js --format iife --file dist/od-vue-component.min.js --extend",
-    "jest": "jest",
+    "test": "npm run test:unit",
     "test:e2e": "vue-cli-service test:e2e",
     "test:unit": "vue-cli-service test:unit --verbose"
   },
