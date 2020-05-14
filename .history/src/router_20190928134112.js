@@ -5,7 +5,6 @@ import Home from './views/index.vue'
 Vue.use(Router)
 
 export default new Router({
-  base:'/od-components/',
   routes: [{
     path: '/',
     name: 'home',
