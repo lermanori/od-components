@@ -65,7 +65,9 @@ export default {
 &page=1`
     }
   },
-
+  created() {
+    console.log(this.$vuetify.breakpoint.xsOnly);
+  }
 };
 </script>
 

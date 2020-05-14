@@ -1,6 +1,6 @@
 {
   "name": "@lermanori/od-vue-components",
-  "version": "0.1.9",
+  "version": "0.1.8",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",

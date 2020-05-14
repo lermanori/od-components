@@ -12,14 +12,22 @@
       <v-radio v-for="n in ['grid','list']" :key="n" :label="n" :value="n"></v-radio>
     </v-radio-group>
     <div>
+      <!-- https://api.collection.cooperhewitt.org/rest/ -->
+      <!-- 
+        `?method=${method}
+&access_token=${token}
+&query=${query}
+&page=1`
+       -->
       <search-content
-        baseUrl="https://api.collection.cooperhewitt.org/rest/"
-        :adapter="adapter_fn"
+        baseUrl="http://localhost:1337/projects"
+        :adapter="(query)=>`?title_eq=${query}`"
       >
         <template v-slot:default="slotProps">
           <div>
             <v-card>
-              <component :is="tabComponent" v-bind="{items:slotProps.response.objects}" />
+              <!-- <component :is="tabComponent" v-bind="{items:slotProps.response.objects}" /> -->
+              {{slotProps.response}}
             </v-card>
           </div>
         </template>
@@ -57,15 +65,9 @@ export default {
       return this.manual ? radioGroup : responsive;
     }
   },
-  methods:{
-    adapter_fn(query){
-      `?method=${this.method}
-&access_token=${this.token}
-&query=${query}
-&page=1`
-    }
-  },
-
+  created() {
+    console.log(this.$vuetify.breakpoint.xsOnly);
+  }
 };
 </script>
 
@@ -84,6 +86,9 @@ div {
     padding: $padding;
     text-transform: uppercase;
     text-decoration: underline;
+  }
+  div {
+    // padding: $padding;
   }
   .my-radio-group {
     justify-content: center;
