@@ -1,6 +1,6 @@
 # od-components
 ## a minimal components libary for search functionality and presentation.
-
+#### made for usage with tailwind.css
 
 ### project components:
 - display:
