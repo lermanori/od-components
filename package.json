@@ -4,14 +4,17 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
+    "test:unit": "vue-cli-service test:unit --verbose",
+    "test:e2e": "vue-cli-service test:e2e",
     "build-bundle": "npm run build:umd & npm run build:es & npm run build:unpkg",
     "build:es": "rollup --config rollup.config.js --format es --file dist/od-vue-component.esm.js",
     "build:umd": "rollup --config rollup.config.js --format umd --file dist/od-vue-component.umd.js",
     "build:unpkg": "rollup --config rollup.config.js --format iife --file dist/od-vue-component.min.js --extend",
-    "test": "npm run test:unit",
-    "test:e2e": "vue-cli-service test:e2e",
-    "test:unit": "vue-cli-service test:unit --verbose"
+    "test": "npm run test:unit"
   },
+  "main": "dist/od-vue-component.umd.js",
+  "module": "dist/od-vue-component.esm.js",
+  "unpkg": "dist/od-vue-component.min.js",
   "dependencies": {
     "@rollup/plugin-buble": "^0.21.3",
     "@rollup/plugin-commonjs": "^11.1.0",
@@ -38,11 +41,9 @@
     "sass": "^1.26.5",
     "sass-loader": "^7.1.0",
     "vue-cli-plugin-axios": "0.0.4",
+    "vue-cli-plugin-tailwind": "^1.4.1",
     "vue-cli-plugin-vuetify": "^0.6.3",
     "vue-template-compiler": "^2.6.11",
     "vuetify-loader": "^1.4.3"
-  },
-  "main": "dist/od-vue-component.umd.js",
-  "module": "dist/od-vue-component.esm.js",
-  "unpkg": "dist/od-vue-component.min.js"
+  }
 }
