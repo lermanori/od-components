@@ -4,14 +4,7 @@ import listItem from "./components/listItem.vue";
 import listView from "./components/listView.vue";
 import searchContent from "./components/searchContent.vue"
 
-import {
-  VCol,
-  VRow,
-  VContainer,
-  VListItem,
-  VList,
-  VTextField
-} from 'vuetify/lib'
+
 
 const components = {
   odGridItem: gridItem,
@@ -19,12 +12,6 @@ const components = {
   odListItem: listItem,
   odListView: listView,
   odSearchContent: searchContent,
-  VCol,
-  VRow,
-  VContainer,
-  VListItem,
-  VList,
-  VTextField
 };
 
 // Declare install function executed by Vue.use()

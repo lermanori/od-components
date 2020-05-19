@@ -1,15 +1,17 @@
 <template>
   <div>
-    <v-row class="center-text">
-      <v-text-field
-        class="padded"
-        outlined
-        v-model="searchValue"
-        label="search"
-        @input="debouncedUpdate"
-      />
-    </v-row>
-
+    <div class="flex justify-center">
+      <form action>
+        <label for="search" class="text-xl font-bold mr-4">Search:</label>
+        <input
+          type="text"
+          class="border-solid border-black border-2"
+          name="search"
+          v-model="searchValue"
+          @input="debouncedUpdate"
+        />
+      </form>
+    </div>
     <div v-if="Response">
       <slot :response="response"></slot>
     </div>
@@ -18,12 +20,8 @@
 
 <script>
 import axios from "axios";
-import { VRow, VTextField } from "vuetify/lib";
 export default {
-  components: {
-    VRow,
-    VTextField
-  },
+
   props: ["baseUrl", "adapter"],
   data() {
     return {

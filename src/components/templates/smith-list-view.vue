@@ -5,13 +5,6 @@
       <smithsonian-list-item :item="item" />
     </list-item>
   </list-view>
-  <!-- 
-                    <list-view v-if="radioGroup=='list'">
-                <list-item v-for="(item,index) in slotProps.response.objects" :key="index">
-                  <smithsonian-list-item :item="item" />
-                </list-item>
-              </list-view>
-  -->
 </template>
 
 <script>

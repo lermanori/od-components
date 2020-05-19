@@ -1,16 +1,5 @@
 <template>
-  <v-container>
-    <v-row>
+    <div class="grid sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4" >
       <slot />
-    </v-row>
-  </v-container>
+    </div>
 </template>
-<script>
-import { VRow, VContainer } from "vuetify/lib";
-export default {
-  components: {
-    VRow,
-    VContainer
-  }
-};
-</script>

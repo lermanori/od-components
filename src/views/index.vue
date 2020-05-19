@@ -1,26 +1,29 @@
 <template>
   <div>
-    <h4>smithsonian object search:</h4>
-    <div style="text-align:center">
-      <v-btn
-        class="my-btn"
-        inset
+    <h4 class="font-bold text-2xl">smithsonian object search:</h4>
+    <div class="flex justify-center">
+      <button
+        class="inline-block font-bold border-solid border-2 border-black px-4 mb-4"
         @click="manual=!manual"
-      >{{manual==true?'make responsive': 'manual select' }}</v-btn>
+      >{{manual==true?'make responsive': 'manual select' }}</button>
     </div>
-    <v-radio-group row v-model="radioGroup" class="my-radio-group" v-if="manual">
-      <v-radio v-for="n in ['grid','list']" :key="n" :label="n" :value="n"></v-radio>
-    </v-radio-group>
+    <form v-if="manual" action>
+      <div class="flex justify-around mb-4">
+        <div>
+          <input type="radio" id="grid" name="radioGroup" value="grid" @click="test('grid')" />
+          <label for="grid" class="text-xl font-bold ml-4">Grid</label>
+        </div>
+        <div>
+          <input type="radio" id="list" name="radioGroup" value="list" @click="test('list')" />
+          <label for="list" class="text-xl font-bold ml-4">List</label>
+        </div>
+      </div>
+    </form>
     <div>
-      <search-content
-        baseUrl="https://api.collection.cooperhewitt.org/rest/"
-        :adapter="adapter_fn"
-      >
+      <search-content baseUrl="https://api.collection.cooperhewitt.org/rest/" :adapter="adapter_fn">
         <template v-slot:default="slotProps">
-          <div>
-            <v-card>
+          <div class="border-solid border-black border-2">
               <component :is="tabComponent" v-bind="{items:slotProps.response.objects}" />
-            </v-card>
           </div>
         </template>
       </search-content>
@@ -57,15 +60,18 @@ export default {
       return this.manual ? radioGroup : responsive;
     }
   },
-  methods:{
-    adapter_fn(query){
+  methods: {
+    adapter_fn(query) {
       return `?method=${this.method}
 &access_token=${this.token}
 &query=${query}
-&page=1`
+&page=1`;
+    },
+    test() {
+      this.radioGroup = arguments[0];
+      console.log("changed");
     }
-  },
-
+  }
 };
 </script>
 

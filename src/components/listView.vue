@@ -1,15 +1,5 @@
 <template>
-  <v-container>
-    <v-list three-line>
+    <div >
       <slot />
-    </v-list>
-  </v-container>
+    </div>
 </template>
-<script>
-import { VList } from "vuetify/lib";
-export default {
-  components: {
-    VList
-  }
-};
-</script>
