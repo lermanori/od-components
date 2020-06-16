@@ -22,7 +22,7 @@
     <div>
       <search-content baseUrl="https://api.collection.cooperhewitt.org/rest/" :adapter="adapter_fn">
         <template v-slot:default="slotProps">
-          <div class="border-solid border-black border-2">
+          <div class="border-solid border-black border-2 mt-4">
               <component :is="tabComponent" v-bind="{items:slotProps.response.objects}" />
           </div>
         </template>
@@ -46,7 +46,8 @@ export default {
       token: "393173429dc66a88154090b394a2480f",
       method: "cooperhewitt.search.objects",
       radioGroup: "grid",
-      manual: false
+      manual: false,
+      windowWidth:window.innerWidth,
     };
   },
   computed: {
@@ -54,11 +55,19 @@ export default {
       const radioGroup =
         this.radioGroup == "grid" ? "smith-grid-view" : "smith-list-view";
       const responsive =
-        this.$vuetify.breakpoint.xsOnly == false
+        this.xsOnly == false
           ? "smith-grid-view"
           : "smith-list-view";
       return this.manual ? radioGroup : responsive;
+    },
+    xsOnly(){
+      return this.windowWidth < 650
     }
+  },
+  mounted() {
+    window.addEventListener('resize', () => {
+      this.windowWidth = window.innerWidth
+    })
   },
   methods: {
     adapter_fn(query) {
